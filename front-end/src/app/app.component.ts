@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {SizingService} from "./services/sizing.service";
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,10 @@ export class AppComponent {
     console.log("onScrollEvent", data);
 
   }
+  data= {name: 'human', height: 175, description: 'homo sapiens', imageURL: 'http://www.apimages.com/Images/Ap_Creative_Stock_Header.jpg'}
 
-  data= {name: 'toto', height: 1.75, description: 'super mec', imageURL: 'http://www.apimages.com/Images/Ap_Creative_Stock_Header.jpg'}
+  constructor(private service: SizingService) {
+
+  }
+
 }
