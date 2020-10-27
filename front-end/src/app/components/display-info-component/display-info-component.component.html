@@ -1,0 +1,13 @@
+<mat-card class="info-card" fxLayout="column" fxLayoutGap="20px">
+  <mat-card-content class="card-content" fxLayout="column" fxLayoutGap="20px">
+    <div>{{data.name | uppercase}}</div>
+    <section fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="20px">
+      <img [src]="data.imageURL" >
+      <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="20px">
+        <span>Description</span>
+        <span>{{data.description}}</span>
+      </div>
+    </section>
+    <div>{{data.height}}&nbsp;cm</div>
+  </mat-card-content>
+</mat-card>
