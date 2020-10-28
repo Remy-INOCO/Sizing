@@ -10,14 +10,21 @@ import {Observable} from "rxjs";
 })
 export class AppComponent {
  data$: Observable<ISizing>;
-
+ dataName: string;
 
   constructor(private service: SizingService) {
     this.data$ = this.service.getInitData();
+   window.addEventListener('wheel', this.checkScrollDirection, true)
+this.data$.subscribe(data => {
+  this.dataName = data.name
+})
+
   }
 
-  onScrollEvent(data) {
-    console.log("onScrollEvent", data);
-
+    checkScrollDirection(event) {
+      console.log(event.wheelDelta)
+    this.data$ = this.service.getDataWithParam(this.dataName, event.wheelDelta > 0 ? 'taller' : 'lower');
   }
+  
+   
 }
