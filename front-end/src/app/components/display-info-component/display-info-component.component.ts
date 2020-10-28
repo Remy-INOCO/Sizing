@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ISizing} from "../../models/sizing";
 
 @Component({
   selector: 'app-display-info-component',
@@ -6,7 +7,8 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./display-info-component.component.scss']
 })
 export class DisplayInfoComponentComponent implements OnInit {
-@Input() data: {name: string, height: number, description: string, imageURL: string}
+@Input() data: ISizing;
+
   constructor() { }
 
   ngOnInit(): void {

@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DisplayInfoComponentComponent } from './components/display-info-component/display-info-component.component';
 import {MatCardModule} from "@angular/material/card";
 import {FlexModule} from "@angular/flex-layout";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {FlexModule} from "@angular/flex-layout";
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
-    FlexModule
+    FlexModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
