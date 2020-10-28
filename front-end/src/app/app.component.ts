@@ -14,10 +14,17 @@ export class AppComponent {
 
   constructor(private service: SizingService) {
     this.data$ = this.service.getInitData();
+   window.addEventListener('scroll', this.scrollEvent, true)
   }
 
-  onScrollEvent(data) {
-    console.log("onScrollEvent", data);
+  onScrollEvent() {
 
+    console.log("onScrollEvent");
+
+  }
+
+  scrollEvent = (event): void => {
+    const scrollTopVal = event.target;
+    console.log(scrollTopVal);
   }
 }
