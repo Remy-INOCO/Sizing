@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {SizingService} from "./services/sizing.service";
+import {ISizing} from "./models/sizing";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -7,18 +9,15 @@ import {SizingService} from "./services/sizing.service";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  initData = {
+ data$: Observable<ISizing>;
 
-  };
+
+  constructor(private service: SizingService) {
+    this.data$ = this.service.getInitData();
+  }
 
   onScrollEvent(data) {
     console.log("onScrollEvent", data);
 
   }
-  data= {name: 'human', height: 175, description: 'homo sapiens', imageURL: 'http://www.apimages.com/Images/Ap_Creative_Stock_Header.jpg'}
-
-  constructor(private service: SizingService) {
-
-  }
-
 }
