@@ -5,7 +5,7 @@ spring:
     hibernate:
       ddl-auto: update
   datasource:
-    url: jdbc:postgresql://localhost:5432/mydb
+    url: jdbc:postgresql://localhost:5432/sizing_db
     username: postgres
-    password: admin
+    password: changeme
     driverClassName: org.postgresql.Driver

@@ -1,30 +1,31 @@
-import { Component } from '@angular/core';
-import {SizingService} from "./services/sizing.service";
-import {ISizing} from "./models/sizing";
-import {Observable} from "rxjs";
+import { Component, OnInit } from '@angular/core';
+import { SizingService } from "./services/sizing.service";
+import { ISizing } from "./models/sizing";
+import { Observable, fromEvent, Subject } from "rxjs";
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
- data$: Observable<ISizing>;
- dataName: string;
+export class AppComponent implements OnInit {
+  private isDestroy$ = new Subject();
+  data: ISizing;
 
-  constructor(private service: SizingService) {
-    this.data$ = this.service.getInitData();
-   window.addEventListener('wheel', this.checkScrollDirection, true)
-this.data$.subscribe(data => {
-  this.dataName = data.name
-})
+  constructor(private service: SizingService) { }
 
+  ngOnInit(): void {
+    this.getData(this.service.getInitData());
+
+    fromEvent(document, 'wheel').pipe(takeUntil(this.isDestroy$)).subscribe(event => this.checkScrollDirection(event));
   }
 
-    checkScrollDirection(event) {
-      console.log(event.wheelDelta)
-    this.data$ = this.service.getDataWithParam(this.dataName, event.wheelDelta > 0 ? 'taller' : 'lower');
+  checkScrollDirection(event) {
+    this.getData(this.service.getDataWithParam(this.data.name, event.wheelDelta > 0 ? 'taller' : 'lower'));
   }
-  
-   
+
+  getData(data$: Observable<ISizing>): void {
+    data$.pipe(takeUntil(this.isDestroy$)).subscribe(data => this.data = data);
+  }
 }

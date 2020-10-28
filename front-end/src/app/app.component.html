@@ -1,3 +1,3 @@
 <div fxLayout="column" fxLayoutAlign="center center" class="container">
-  <app-display-info-component [data]="data$ |async"></app-display-info-component>
+  <app-display-info-component *ngIf="data" [data]="data"></app-display-info-component>
 </div>

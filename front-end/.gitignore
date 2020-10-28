@@ -2,6 +2,7 @@
 
 # compiled output
 /dist
+*/bin
 /tmp
 /out-tsc
 # Only exists if Bazel was run
@@ -18,6 +19,7 @@ speed-measure-plugin*.json
 /.idea
 .project
 .classpath
+**.class
 .c9/
 *.launch
 .settings/

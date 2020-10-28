@@ -16,6 +16,8 @@ export class SizingService {
   }
 
   getDataWithParam(referenceName: string, compareValue: 'lower' | 'taller'): Observable<ISizing> {
+    console.log('trying to launch getDataWithParam', referenceName);
+    
     return this.httpClient.get<ISizing>(`http://localhost:8080/item?name=${referenceName}&size=${compareValue}`);
   }
 }

@@ -8,9 +8,7 @@
 ```bash
 docker-compose build &&
 docker-compose up -d postgres_container && 
-docker-compose run postgres_container && 
-docker-compose up -d pgadmin_container && 
-docker-compose run pgadmin_container
+docker-compose up -d pgadmin_container
 ```
 
 - Insérer quelques infos via pg admin (mdp : changeme)  
@@ -20,7 +18,7 @@ Créer un serveur
 Créer une database nommée sizing_db  
 
 - Démarrer le serveur situé dans [Back-End](./Back-End)
-- Enfin insérer ses quelques données dans la table item créé via le lancement du serveur
+- Enfin insérer ses quelques données dans la table item créé via le lancement du serveur :  
 INSERT INTO	item (name, description, "imageUrl", size, weight, "wikiUrl")
 VALUES 	('human', 'Humans (Homo sapiens) are a species of highly intelligent primates.', 'https://i.pinimg.com/736x/83/6a/9b/836a9b18adaa21e843116bfde0cba594.jpg', 175, 68, 'https://en.wikipedia.org/wiki/Human'),
 		('dog', 'The dog (Canis familiaris when considered a distinct species or Canis lupus familiaris when considered a subspecies of the wolf) is a domesticated carnivore of the family Canidae.', 'https://www.canalvie.com/polopoly_fs/1.1422594.1524076568!/image/bebe-labrador.jpg_gen/derivatives/cvlandscape_670_377/bebe-labrador.jpg', 40, 6, 'https://en.wikipedia.org/wiki/Dog'),
