@@ -12,7 +12,7 @@ export class SizingService {
   constructor(private httpClient: HttpClient) { }
 
   getInitData(): Observable<ISizing> {
-     return this.httpClient.get<ISizing>('localhost:8080/human');
+     return this.httpClient.get<ISizing>('http://localhost:8080/human');
 
     // return of({ name: 'Homo sapiens',
     //   size: 170,
@@ -24,6 +24,6 @@ export class SizingService {
   }
 
   getDataWithParam(referenceName: string, compareValue: 'lower' | 'taller'): Observable<ISizing> {
-    return this.httpClient.get<ISizing>(`localhost:8080/item?name=${referenceName}&size=${compareValue}`);
+    return this.httpClient.get<ISizing>(`http://localhost:8080/item?name=${referenceName}&size=${compareValue}`);
   }
 }
